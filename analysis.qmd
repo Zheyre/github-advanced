@@ -1,0 +1,30 @@
+---
+title: "GitHub Advanced"
+author: "Zheyre Tolliver"
+format: html
+execute:
+  echo: false
+---
+
+```{r}
+#| message: false
+library(tidyverse)
+```
+
+```{r}
+diamonds |>
+  ggplot(aes(x = cut, y = price, fill = cut)) +
+  geom_boxplot(alpha = 0.85, outlier.alpha = 0.15) +
+  scale_fill_viridis_d(option = "plasma", end = 0.9) +
+  scale_y_log10(labels = scales::label_dollar()) +
+  labs(
+    title = "Diamond Prices by Cut Quality",
+    subtitle = "Prices for about 54,000 diamonds",
+    x = "Cut",
+    y = "Price (log scale)",
+    caption = "Source: diamonds dataset from the ggplot2 package"
+  ) +
+  theme_minimal(base_size = 13) +
+  theme(legend.position = "none",
+        plot.title = element_text(face = "bold"))
+```
