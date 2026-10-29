@@ -28,3 +28,5 @@ diamonds |>
   theme(legend.position = "none",
         plot.title = element_text(face = "bold"))
 ```
+
+This line was written on a second machine.
